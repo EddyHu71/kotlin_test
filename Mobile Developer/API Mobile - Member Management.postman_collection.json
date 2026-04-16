@@ -1,0 +1,303 @@
+{
+  "info": {
+    "_postman_id": "1a11972a-d735-40bd-83cc-a3546d2ebc4b",
+    "name": "API Mobile - Member Management",
+    "description": "Complete API collection for Mobile Member Management system with authentication and member CRUD operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "10571133",
+    "_collection_link": "https://go.postman.co/collection/10571133-1a11972a-d735-40bd-83cc-a3546d2ebc4b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\",\n  \"full_name\": \"John Doe\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "register"
+              ]
+            },
+            "description": "Register a new user account. Returns JWT token on success."
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "login"
+              ]
+            },
+            "description": "Login with existing credentials. Returns JWT token."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "profile"
+              ]
+            },
+            "description": "Get current user profile. Requires authentication."
+          },
+          "response": []
+        }
+      ],
+      "description": "Authentication endpoints for user registration and login"
+    },
+    {
+      "name": "Members",
+      "item": [
+        {
+          "name": "Create Member",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "John Doe",
+                  "description": "Member name (REQUIRED)",
+                  "type": "text"
+                },
+                {
+                  "key": "nik",
+                  "value": "3174012345678902",
+                  "description": "NIK - Nomor Induk Kependudukan (REQUIRED)",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "081234567890",
+                  "description": "Phone number (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "birth_place",
+                  "value": "Jakarta",
+                  "description": "Birth place (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "birth_date",
+                  "value": "1990-01-15",
+                  "description": "Birth date YYYY-MM-DD (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "status",
+                  "value": "Married",
+                  "description": "Marital status (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "occupation",
+                  "value": "Software Engineer",
+                  "description": "Occupation/profession (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "address",
+                  "value": "Jl. Sudirman No. 123",
+                  "description": "Residential address (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "provinsi",
+                  "value": "DKI Jakarta",
+                  "description": "Province (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "kota_kabupaten",
+                  "value": "Jakarta Selatan",
+                  "description": "City/Regency (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "kecamatan",
+                  "value": "Kebayoran Baru",
+                  "description": "District (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "kelurahan",
+                  "value": "Senayan",
+                  "description": "Sub-district (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "kode_pos",
+                  "value": "12190",
+                  "description": "Postal code (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "alamat_domisili",
+                  "value": "Jl. Gatot Subroto No. 456",
+                  "description": "Domicile address (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "provinsi_domisili",
+                  "value": "DKI Jakarta",
+                  "description": "Domicile province (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "kota_kabupaten_domisili",
+                  "value": "Jakarta Pusat",
+                  "description": "Domicile city/regency (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "kecamatan_domisili",
+                  "value": "Tanah Abang",
+                  "description": "Domicile district (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "kelurahan_domisili",
+                  "value": "Bendungan Hilir",
+                  "description": "Domicile sub-district (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "kode_pos_domisili",
+                  "value": "10210",
+                  "description": "Domicile postal code (optional)",
+                  "type": "text"
+                },
+                {
+                  "key": "ktp_file",
+                  "description": "KTP image file - max 2MB (optional)",
+                  "type": "file",
+                  "src": "/Users/hilmi/Downloads/3184392482948329.jpg"
+                },
+                {
+                  "key": "ktp_file_secondary",
+                  "type": "file",
+                  "uuid": "8d644244-33a9-4a09-a90b-7cf436382070",
+                  "src": "/Users/hilmi/Downloads/pngtree-ktp-residents-identity-card-id-card-free-vector-png-image_8928715.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/member",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "member"
+              ]
+            },
+            "description": "Create a new member with comprehensive address data and optional KTP file upload. Required fields: name, nik."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Members List",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/member",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "member"
+              ]
+            },
+            "description": "Get list of all members for the authenticated user. Returns simplified data: name, nik, phone, ktp_url."
+          },
+          "response": []
+        }
+      ],
+      "description": "Member management endpoints - create and list members"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "jwt_token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
