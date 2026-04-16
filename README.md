@@ -1,3 +1,4 @@
-##Kotlin Project
+# Kotlin Project
 
-Using MVVM, Offline Storage
+## Description
+Using MVVM, Offline Storage, Using Retrofit
