@@ -1,0 +1,44 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- BASIC -->
+    <EditText android:id="@+id/etName" android:hint="Nama"/>
+    <EditText android:id="@+id/etNik" android:hint="NIK"/>
+    <EditText android:id="@+id/etPhone" android:hint="Telepon"/>
+
+    <!-- KTP ADDRESS -->
+    <TextView android:text="Alamat KTP"/>
+    <EditText android:id="@+id/etKtpAddress" android:hint="Alamat Lengkap"/>
+    <EditText android:id="@+id/etKtpCity" android:hint="Kota"/>
+
+    <!-- SAME ADDRESS -->
+    <CheckBox
+        android:id="@+id/cbSame"
+        android:text="Domisili sama dengan KTP"/>
+
+    <!-- DOMICILE -->
+    <TextView android:text="Alamat Domisili"/>
+    <EditText android:id="@+id/etDomAddress" android:hint="Alamat Domisili"/>
+
+    <!-- IMAGE -->
+    <Button
+        android:id="@+id/btnKtpMain"
+        android:text="Ambil Foto KTP"/>
+
+    <Button
+        android:id="@+id/btnKtpSupport"
+        android:text="Ambil Foto Pendukung"/>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:text="Submit Offline"/>
+
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:text="Full Name"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:text="Email"/>
+
+    <Button
+        android:id="@+id/btnForm"
+        android:text="Tambah Member"/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:text="Logout"/>
+</LinearLayout>
